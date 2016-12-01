@@ -766,6 +766,14 @@ Eloquent 提供了方便的方法來增加新的模型至關聯中。例如，�
 
     $user->roles()->attach([1 => ['expires' => $expires], 2, 3]);
 
+#### 修改樞紐表中的特定紀錄
+
+如果你需要修改已存在樞紐表中的紀錄，你可以使用 `updateExistingPivot` 方法：
+
+	$user = App\User::find(1);
+
+	$user->roles()->updateExistingPivot($roleId, $attributes);
+
 #### 為了方便的同步
 
 你也可以使用 `sync` 方法建構多對多關聯。`sync` 允許傳入放置於中介表的 IDs 陣列。任何不在給定陣列中的 IDs 將會從中介表中被刪除。所以，在此操作結束後，只會有陣列中的 IDs 存在於中介表中：
