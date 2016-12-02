@@ -784,6 +784,10 @@ Eloquent 提供了方便的方法來增加新的模型至關聯中。例如，�
 
     $user->roles()->sync([1 => ['expires' => true], 2, 3]);
 
+如果你不想移除已存在的 IDs，你可以使用 `syncWithoutDetaching` 方法：
+
+    $user->roles()->syncWithoutDetaching([1, 2, 3]);
+
 <a name="touching-parent-timestamps"></a>
 ### 連動上層時間戳記
 
