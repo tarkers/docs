@@ -4,7 +4,7 @@
 - [核心開發討論](#core-development-discussion)
 - [提交分支的注意事項](#which-branch)
 - [安全性漏洞](#security-vulnerabilities)
-- [Coding Style](#coding-style)
+- [程式碼風格](#coding-style)
     - [PHPDoc](#phpdoc)
     - [StyleCI](#styleci)
 
@@ -60,7 +60,7 @@ Laravel 的原始碼就放在 GitHub 上，並且每個 Laravel 延伸套件都�
 如果你發現 Laravel 存在著安全性漏洞，請傳送郵件到 Taylor Otwell 的 <a href="mailto:taylor@laravel.com">taylor@laravel.com</a> 信箱。所有安全漏洞將會被盡快解決。
 
 <a name="coding-style"></a>
-## Coding Style
+## 程式碼風格
 
 Laravel 遵循 [PSR-2](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md) 編碼標準和 [PSR-4](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-4-autoloader.md) 自動載入標準。
 
