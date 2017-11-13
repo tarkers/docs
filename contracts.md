@@ -6,7 +6,7 @@
     - [鬆散耦合](#loose-coupling)
     - [簡單性](#simplicity)
 - [如何使用 Contracts](#how-to-use-contracts)
-- [Contract 的參考清單](#contract-reference)
+- [Contract 參考](#contract-reference)
 
 <a name="introduction"></a>
 ## 介紹
