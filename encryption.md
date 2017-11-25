@@ -2,7 +2,7 @@
 
 - [介紹](#introduction)
 - [設定](#configuration)
-- [加密一個值](#using-the-encrypter)
+- [使用加密](#using-the-encrypter)
 
 <a name="introduction"></a>
 ## 介紹
@@ -17,7 +17,7 @@ Laravel 的加密器是使用 OpenSSL 來提供 AES-256 和 AES-128。強烈建�
 <a name="using-the-encrypter"></a>
 ## 使用加密
 
-#### Encrypting A Value
+#### 加密一個值
 
 你可以使用 `encrypt` 輔助函式來加密一個值。所有被加密的值都會使用 OpenSSL 和 `AES-256-CBC` 來加密。此外，所有加密的值都會使用訊息認證碼（MAC）來進行簽證，並用來檢測對加密字串的任何修改：、
 
