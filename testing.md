@@ -43,7 +43,7 @@ Laravel 在建立時有考慮到測試這件事。事實上，內建已經支援
     class ExampleTest extends TestCase
     {
         /**
-         * 基礎測試範例。
+         * 一個基礎測試範例。
          *
          * @return void
          */
