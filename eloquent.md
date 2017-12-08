@@ -16,9 +16,9 @@
 - [刪除模型](#deleting-models)
     - [軟刪除](#soft-deleting)
     - [查詢被軟刪除的模型](#querying-soft-deleted-models)
-- [查詢 Scopes](#query-scopes)
-    - [全域的 Scopes](#global-scopes)
-    - [局部的 Scopes](#local-scopes)
+- [查詢 Scope](#query-scopes)
+    - [全域的 Scope](#global-scopes)
+    - [局部的 Scope](#local-scopes)
 - [事件](#events)
     - [Observer](#observers)
 
@@ -533,7 +533,7 @@ Eloquent 的 `all` 方法會回傳在模型資料表中所有的結果。由於�
 <a name="global-scopes"></a>
 ### 全域的 Scope
 
-全域的 Scope 可以讓你為給定模型新增條件到所有查詢。Laravel 自己的[軟刪除](#soft-deleting) 功能利用全域的 Scope 能從資料庫中只取出「未刪除」模型。撰寫自己全域的 Scope 能提供更方便且簡單的方式來確保給定模型的每個查詢都能受到一定的限制。
+全域的 Scope 可以讓你為給定模型新增條件到所有查詢。Laravel 自己的[軟刪除](#soft-deleting)功能利用全域的 Scope 能從資料庫中只取出「未刪除」模型。撰寫自己全域的 Scope 能提供更方便且簡單的方式來確保給定模型的每個查詢都能受到一定的限制。
 
 #### 撰寫全域的 Scope
 
@@ -643,7 +643,7 @@ Eloquent 也可以讓你使用閉包來定義全域的，這對於簡單的作�
 
 局部的 Scope 讓你定義限制的共用集合，它可以輕鬆地在你的應用程式重複使用。例如，你可能需要頻繁地取得所有被認為是「受歡迎的」使用者。要定義的 Scope，必須簡單地在 Eloquent 模型方法前面加上前綴 `scope`
 
-Scopes 總是會回傳一個查詢建構器的實例：
+Scope 總是會回傳一個查詢建構器的實例：
 
     <?php
 
