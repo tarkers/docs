@@ -110,11 +110,11 @@ Laravel 的 Flysystem 也整合了 Rackspace 驅動。框架預設的 `filesyste
 <a name="retrieving-files"></a>
 ## 接收檔案
 
-The `get` method may be used to retrieve the contents of a file. The raw string contents of the file will be returned by the method. Remember, all file paths should be specified relative to the "root" location configured for the disk:
+可以使用 `get` 方法來取得一個檔案的內容。檔案的原始字串內容會被這個方法所回傳。請記得，所有檔案路徑應該使用硬碟「根目錄」的相對位置：
 
     $contents = Storage::get('file.jpg');
 
-The `exists` method may be used to determine if a file exists on the disk:
+`exists` 方法可被用於檢查給定的檔案是否存在於硬碟上：
 
     $exists = Storage::disk('s3')->exists('file.jpg');
 
@@ -134,7 +134,7 @@ The `exists` method may be used to determine if a file exists on the disk:
 如果是使用 `s3` 或 `rackspace` 驅動來儲存檔案的話，你可以使用 `temporaryUrl` 方法來為給定的檔案建立一個臨時的 URL。這個方法接受一個路徑和一個用來指定 URL 有效期限的 `DateTime` 實例：
 
     $url = Storage::temporaryUrl(
-        'file1.jpg', Carbon::now()->addMinutes(5)
+        'file1.jpg', now()->addMinutes(5)
     );
 
 #### 自訂本機 URL 主機
