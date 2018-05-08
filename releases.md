@@ -7,17 +7,17 @@
 <a name="versioning-scheme"></a>
 ## 版本規劃
 
-Laravel 的版本規劃維持以下慣例：`主流版本.主要版本.次要版本`。會在每六個月（二月和八月）發佈新的主要框架版本，而次要版本通常可能會每週發布一次。次要版本**永不**包含破壞主要版本結構的更新。
+Laravel 的版本規劃維持以下慣例：`主流版本.主要版本.次要版本`。會在每六個月（二月和八月）發佈新的主要框架版本，而次要版本通常可能會每週發布一次。次要版本的更新內容**不會**破壞主要版本的結構。
 
 當你從應用程式或套件中引用 Laravel 框架或它的元件，你應該維持版本的控制，像是 `5.5.*`，由於 Laravel 的主要版本會有重大改變，我們盡力為你能夠在一天或更短的時間內升級新的主要版本號。
 
-主流版本的轉換通常會相隔好幾年，這也表示框架的結構與慣例已經準備從新開始。現階段還尚未規劃開發新的主流版本。
+主流版本的轉換通常會相隔好幾年，這也表示框架的結構與慣例已經準備重新開始。現階段還尚未規劃開發新的主流版本。
 
 #### 為什麼 Laravel 不使用語意化版控？
 
 一方面，Laravel 的所有可選元件（Cashier、Dusk、Valet、Socialite，等等）**都有**使用語意化版控。然而，Laravel 框架並沒有這麼做。這是因為語意化版控式是為了確認新舊版本的程式碼的相容性之還原方式。就算使用了語意化版控，你仍必須安裝升級套件，並執行自動化測試來確認是否有與**實際**程式碼不相容的地方。
 
-反正 Laravel 就是使用了這個版控規劃，這個版控規劃可以更直觀地表示版本的實際範圍。此外，由於次要版本**從不**包含破壞主要版本結構的更新，只要你版控維持在`主流版本.主義版本.*`的慣例，你就不會接收到破壞主體的更新。
+反正 Laravel 就是使用了這個版控規劃，這個版控規劃可以更直觀地表示版本的實際範圍。此外，由於次要版本的更新內容**不會**破壞主要版本的結構，只要你的版本維持在`主流版本.主要版本.*`的慣例，你就不會接收到破壞主體的更新。
 
 <a name="support-policy"></a>
 ## 提供支援的原則
@@ -31,7 +31,7 @@ Laravel 5.5 持續對 Laravel 5.4 進行改良：透過新增自動檢查套件�
 
 此外，Laravel 5.5 剛好也發佈了 [Laravel Horizon](https://horizon.laravel.com)，這是一個用於 Redis 為基礎的 Laravel 隊列的全新華麗隊列儀表板和設定系統。
 
-> {tip} 這個文件總結了框架最有感的改良內容。然而，更徹底的變更日誌都可以在 [GitHub](https://github.com/laravel/framework/blob/5.5/CHANGELOG-5.5.md) 上找到。
+> {tip} 這個文件總結了框架最有感的改良內容。然而，更徹底的更新日誌都可以在 [GitHub](https://github.com/laravel/framework/blob/5.5/CHANGELOG-5.5.md) 上找到。
 
 ### Laravel Horizon
 
@@ -43,7 +43,7 @@ Horizon 為你的 Laravel Redis 隊列提供了一個華麗的儀表板以及程
 
 ### 套件的發掘
 
-> {video} 連結是一個免費的[教學影片的網站](https://laracasts.com/series/whats-new-in-laravel-5-5/episodes/5)，是 Laracasts 所供應的。
+> {video} Laracasts 上有提供這個功能的免費[教學影片的網站](https://laracasts.com/series/whats-new-in-laravel-5-5/episodes/5)。
 
 在之前的 Laravel 版本中，安裝套件通常會要求幾個額外的步驟，像是新增服務提供者到 `app` 設定檔，並註冊任何相關的 Facade。然而，從 Laravel 5.5 開始，Laravel 可以自動為你檢測並註冊服務提供者和 Facades。
 
@@ -75,7 +75,7 @@ Resource 類別代表著需要被轉換成 JSON 結構的一個模型。例如�
 
     use Illuminate\Http\Resources\Json\Resource;
 
-    class User extends Resource
+    class UserResource extends Resource
     {
         /**
          * 將資源轉換成陣列。
@@ -99,9 +99,9 @@ Resource 類別代表著需要被轉換成 JSON 結構的一個模型。例如�
 
 ### 自動註冊終端指令
 
-> {video} 連結是一個免費的[教學影片的網站](https://laracasts.com/series/whats-new-in-laravel-5-5/episodes/12)，是 Laracasts 所供應的。
+> {video} Laracasts 上有提供這個功能的免費[教學影片的網站](https://laracasts.com/series/whats-new-in-laravel-5-5/episodes/12)。
 
-建立新終端指令時，你不在需要在終端 Kernel 的 `$commadns` 屬性中手動列出它們了。反而是，從 Kernel 中的 `commands` 方法呼叫新的 `load` 方法，這會去掃描給定目錄中的任何終端指令並自動將它們註冊：
+建立新終端指令時，你不再需要在終端 Kernel 的 `$commadns` 屬性中手動列出它們了。反而是從 Kernel 中的 `commands` 方法呼叫新的 `load` 方法，這會去掃描給定目錄中的任何終端指令並自動將它們註冊：
 
     /**
      * 註冊應用程式的指令。
@@ -117,7 +117,7 @@ Resource 類別代表著需要被轉換成 JSON 結構的一個模型。例如�
 
 ### 新的前端預設框架選項
 
-> {video} 連結是一個免費的[教學影片的網站](https://laracasts.com/series/whats-new-in-laravel-5-5/episodes/4)，是 Laracasts 所供應的。
+> {video} Laracasts 上有提供這個功能的免費[教學影片的網站](https://laracasts.com/series/whats-new-in-laravel-5-5/episodes/4)。
 
 雖然基本的 Vue 框架仍然在 Laravel 5.5，但有幾個新的前端預設框架選項可使用。剛建立新的 Laravel 應用程式中，你能使用 `preset` 指令將 Vue 框架換成 React 框架：
 
@@ -127,7 +127,7 @@ Resource 類別代表著需要被轉換成 JSON 結構的一個模型。例如�
 
     php artisan preset none
 
-> {note} 這些只能只適用於剛安裝的 Laravel，不應該被用在已開發許久的應用程式。
+> {note} 這些只適用於新安裝的 Laravel，不應該使用在已開發許久的應用程式。
 
 ### 隊列任務鏈結
 
@@ -180,7 +180,7 @@ Resource 類別代表著需要被轉換成 JSON 結構的一個模型。例如�
 
 ### 驗證規則物件
 
-> {video} 連結是一個免費的[教學影片的網站](https://laracasts.com/series/whats-new-in-laravel-5-5/episodes/7)，是 Laracasts 所供應的。
+> {video} Laracasts 上有提供這個功能的免費[教學影片的網站](https://laracasts.com/series/whats-new-in-laravel-5-5/episodes/7)。
 
 驗證規則物件提供一個既新又嚴謹的方式來新增自訂驗證規則到你的應用程式。在 Laravel 的前一個版本中，`Validator::extend` 方法透過使用閉包來自訂驗證規則。然而，這會使程式碼變的複雜。在 Laravel 5.5 中，新的 Artisan 的 `make:rule` 指令會在 `app\Rules` 目錄中產生一個驗證規則：
 
@@ -219,7 +219,7 @@ Resource 類別代表著需要被轉換成 JSON 結構的一個模型。例如�
         }
     }
 
-一旦規則被定義，你就可以簡單的傳入一個規則物件實例與其他驗證規則來使用：
+一旦規則被定義，你就可以傳入一個規則物件實例與其他驗證規則來使用：
 
     use App\Rules\ValidName;
 
@@ -275,9 +275,9 @@ Resource 類別代表著需要被轉換成 JSON 結構的一個模型。例如�
 
 ### 渲染 Mailable
 
-> {video} 連結是一個免費的[教學影片的網站](https://laracasts.com/series/whats-new-in-laravel-5-5/episodes/6)，是 Laracasts 所供應的。
+> {video} Laracasts 上有提供這個功能的免費[教學影片的網站](https://laracasts.com/series/whats-new-in-laravel-5-5/episodes/6)。
 
-Mailable 現在能直接從路由中回傳，可以讓你在瀏覽器中快速預覽你 Mailable 的設計：
+Mailable 現在能直接從路由中回傳，可以讓你在瀏覽器中快速預覽 Mailable 的設計：
 
     Route::get('/mailable', function () {
         $invoice = App\Invoice::find(1);
@@ -287,7 +287,7 @@ Mailable 現在能直接從路由中回傳，可以讓你在瀏覽器中快速�
 
 ### 渲染與回報例外
 
-> {video} 連結是一個免費的[教學影片的網站](https://laracasts.com/series/whats-new-in-laravel-5-5/episodes/18)，是 Laracasts 所供應的。
+> {video} Laracasts 上有提供這個功能的免費[教學影片的網站](https://laracasts.com/series/whats-new-in-laravel-5-5/episodes/18)。
 
 在上個 Laravel 版本中，對於渲染給定例外的自訂回應，你可以不由得的在例外處理中使用「型別檢查」。例如，你可能在例外處理的 `render` 方法中撰寫像這樣的程式碼：
 
@@ -307,7 +307,7 @@ Mailable 現在能直接從路由中回傳，可以讓你在瀏覽器中快速�
         return parent::render($request, $exception);
     }
 
-在 Laravel 5.5 中，你現在可以在例外上直接定義一個 `render` 方法。這可以讓你在例外上直接放置自訂回應的渲染邏輯，這有助於避免在例外處理中的條件邏輯的堆積。如果你也想要自訂例外的回報邏輯，你可以在類別上定義 `report` 方法：
+在 Laravel 5.5 中，你現在可以在例外上直接定義一個 `render` 方法。這可以讓你在例外上直接放置自訂回應的渲染邏輯，這有助於避免堆積條件表達式在例外處理中。如果你也想要自訂例外的回報邏輯，你可以在類別上定義 `report` 方法：
 
     <?php
 
@@ -341,9 +341,9 @@ Mailable 現在能直接從路由中回傳，可以讓你在瀏覽器中快速�
 
 ### 請求驗證
 
-> {video} 連結是一個免費的[教學影片的網站](https://laracasts.com/series/whats-new-in-laravel-5-5/episodes/2)，是 Laracasts 所供應的。
+> {video} Laracasts 上有提供這個功能的免費[教學影片的網站](https://laracasts.com/series/whats-new-in-laravel-5-5/episodes/2)。
 
-`Illuminate\Http\Request` 物件現在提供了一個 `validate` 方法，可以讓你快速從路由閉包或控制器中驗證傳進來的請求：
+`Illuminate\Http\Request` 物件現在提供了一個 `validate` 方法，可以讓你更快地從路由閉包或控制器中驗證傳進來的請求：
 
     use Illuminate\Http\Request;
 
@@ -416,7 +416,7 @@ Redis 和 Memcached 快取驅動現在支援獲得與釋放原子「鎖」。這
 
 ### Blade 模板改良
 
-> {video} 連結是一個免費的[教學影片的網站](https://laracasts.com/series/whats-new-in-laravel-5-5/episodes/10)，是 Laracasts 所供應的。
+> {video} Laracasts 上有提供這個功能的免費[教學影片的網站](https://laracasts.com/series/whats-new-in-laravel-5-5/episodes/10)。
 
 在定義簡單的自定義條件語句時，對自定的指令進行撰寫有時比所需的更為複雜。因此，Blade 現在提供了一個 `Blade::if` 方法，可以讓你使用閉包來快速定義自定條件指令。例如，讓我們定義一個自定條件來檢查當前的應用程式的環境。我們可以在我們的 `AppServiceProvider` 的 `boot` 方法中做到這一點：
 
@@ -442,7 +442,7 @@ Redis 和 Memcached 快取驅動現在支援獲得與釋放原子「鎖」。這
         // 應用程式不在本機的環境...
     @endenv
 
-除了可以輕鬆定義自定 Blade 條件指令外，還新增了新的便捷方式來快速檢查當前使用者的的驗證狀態：
+除了可以輕易地自訂 Blade 條件指令外，還新增了更方便的指令來快速檢查當前使用者的的驗證狀態：
 
     @auth
         // 該使用者已認證過...
@@ -454,13 +454,13 @@ Redis 和 Memcached 快取驅動現在支援獲得與釋放原子「鎖」。這
 
 ### 新的路由方法
 
-> {video} 連結是一個免費的[教學影片的網站](https://laracasts.com/series/whats-new-in-laravel-5-5/episodes/16)，是 Laracasts 所供應的。
+> {video} Laracasts 上有提供這個功能的免費[教學影片的網站](https://laracasts.com/series/whats-new-in-laravel-5-5/episodes/16)。
 
 如果你正在定義一個用來重導到另一個 URI 的路由，你現在可以使用 `Route::redirect` 方法。這個方法提供了一個便捷的方式，所以你不必為了執行簡單的重導而定義完整的路由或控制器：
 
     Route::redirect('/here', '/there', 301);
 
-如果你的路由只需要回傳一個視圖，你現在可以使用 `Route::view` 方法。就像是使用 `redirect` 方法一樣，這個方法提供了一個簡單的快捷方式，所以你不必定義一個完整的路由或控制器。`view` 方法接受一個 URI 作為第一個參數，一個視圖名稱作為其第二個參數。另外，你可以提供一個資料陣列作為可選的第三個參數傳入視圖：
+如果你的路由只需要回傳一個視圖，你現在可以使用 `Route::view` 方法。就像是使用 `redirect` 方法一樣，這個方法提供了一個簡易的使用方式，所以你不必定義一個完整的路由或控制器。`view` 方法接受一個 URI 作為第一個參數，一個視圖名稱作為其第二個參數。另外，你可以提供一個資料陣列作為可選的第三個參數傳入視圖：
 
     Route::view('/welcome', 'welcome');
 
